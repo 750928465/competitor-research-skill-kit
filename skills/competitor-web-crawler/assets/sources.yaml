@@ -1,5 +1,5 @@
 # Source Credibility Configuration
-# Used to prioritize and validate search results
+# Used to prioritize and validate search and fetch results
 
 # Trusted domains with credibility levels
 # Higher level = more trustworthy
@@ -10,7 +10,7 @@ trusted_sources:
       - ".io"
       - ".dev"
       - ".ai"
-    description: "Official company/product websites"
+    description: "Official company/product websites, including homepage, pricing, docs, changelog, blog, and newsroom pages"
 
   - level: 2  # Established tech media
     domains:
@@ -52,6 +52,41 @@ excluded_domains:
   - "pinterest.com"
   - "quora.com"
 
+# Domains normally excluded but allowed as unverified signals in market_monitoring
+monitoring_signal_domains:
+  - "reddit.com"
+  - "x.com"
+  - "twitter.com"
+  - "linkedin.com/posts"
+  - "g2.com"
+  - "capterra.com"
+  - "trustpilot.com"
+
+# Page patterns to prioritize for web_fetch
+fetch_priority_patterns:
+  official:
+    - "/pricing"
+    - "/features"
+    - "/product"
+    - "/solutions"
+    - "/docs"
+    - "/help"
+    - "/support"
+  updates:
+    - "/changelog"
+    - "/release"
+    - "/releases"
+    - "/updates"
+    - "/blog"
+    - "/news"
+    - "/press"
+    - "/newsroom"
+  risk:
+    - "/status"
+    - "/incident"
+    - "/security"
+    - "/privacy"
+
 # Search intent templates
 # Used by search_strategy.md to generate queries
 search_intents:
@@ -84,3 +119,21 @@ search_intents:
     queries:
       - "{product} review pros cons"
       - "{product} 评价 优缺点"
+
+  updates:
+    priority: 6
+    queries:
+      - "{product} changelog release notes"
+      - "{product} 版本更新 发布日志"
+
+  market_activity:
+    priority: 7
+    queries:
+      - "{product} launch campaign news"
+      - "{product} 市场活动 发布 新闻"
+
+  risk_signals:
+    priority: 8
+    queries:
+      - "{product} complaints outage negative news"
+      - "{product} 投诉 舆情 风险"
