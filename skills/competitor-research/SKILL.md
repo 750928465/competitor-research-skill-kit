@@ -29,7 +29,7 @@ competitor-research
 ## 处理流程
 
 ### Step 1: 意图识别
-读取 `search-engine/resources/references/intent_parser.md`，将查询解析为三种意图之一：
+读取 `{baseDir}/../search-engine/references/intent_parser.md`，将查询解析为三种意图之一：
 
 | 意图 | 关键词 | 分析重点 |
 |------|--------|---------|
@@ -41,14 +41,14 @@ competitor-research
 
 ### Step 2: 搜索策略与执行
 调用 `search-engine` 子技能：
-- 读取 `search-engine/resources/references/search_strategy.md` 生成 6-8 条查询
+- 读取 `{baseDir}/../search-engine/references/search_strategy.md` 生成 6-8 条查询
 - 执行 WebSearch，收集结果并按 URL 去重
 - 排除社交媒体、评论聚合站等低质量来源
 
 ### Step 3: 数据清洗与报告生成
 调用 `report-generator` 子技能：
-- 读取 `report-generator/resources/references/data_cleaning.md` 结构化搜索结果
-- 读取 `report-generator/resources/references/report_template.md` 选择对应报告模板
+- 读取 `{baseDir}/../report-generator/references/data_cleaning.md` 结构化搜索结果
+- 读取 `{baseDir}/../report-generator/references/report_template.md` 选择对应报告模板
 - 生成完整 Markdown 报告
 
 ### Step 4: 输出
@@ -66,7 +66,7 @@ competitor-research
 ## 依赖资源
 - `search-engine` 子技能 — 搜索策略与执行
 - `report-generator` 子技能 — 数据清洗与报告生成
-- `search-engine/resources/assets/sources.yaml` — 可信来源配置
+- `{baseDir}/../search-engine/assets/sources.yaml` — 可信来源配置
 
 ## 注意事项
 - 证据优先：只收录有可验证来源的产品信息

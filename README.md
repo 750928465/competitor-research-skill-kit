@@ -24,10 +24,10 @@ The skill provides the **strategy** (what to search, how to analyze, output form
 git clone https://github.com/750928465/competitor-research-skill-kit.git
 ```
 
-Copy the entire project to your agent's skill directory:
-- **OpenClaw**: Copy to `~/.openclaw/workspace/skills/`
-- **Claude Code**: Copy to `.claude/skills/`
-- **Other agents**: Point your agent to the project root
+Copy the skill directories to your agent's skill directory:
+- **OpenClaw**: Copy `skills/*` to `~/.openclaw/workspace/skills/`
+- **Claude Code**: Copy `skills/*` to `.claude/skills/`
+- **Other agents**: Point your agent to the project root or import the `skills/` directory
 
 ### Usage
 
@@ -60,19 +60,17 @@ competitor-research-skill-kit/
     │   └── SKILL.md
     ├── search-engine/                           # Search strategy sub-skill
     │   ├── SKILL.md
-    │   └── resources/
-    │       ├── references/
-    │       │   ├── intent_parser.md             # Intent recognition rules
-    │       │   └── search_strategy.md           # Search query templates
-    │       └── assets/
-    │           └── sources.yaml                 # Trusted sources config
+    │   ├── references/
+    │   │   ├── intent_parser.md                 # Intent recognition rules
+    │   │   └── search_strategy.md               # Search query templates
+    │   └── assets/
+    │       └── sources.yaml                     # Trusted sources config
     └── report-generator/                        # Report generation sub-skill
         ├── SKILL.md
-        └── resources/
-            └── references/
-                ├── data_cleaning.md             # Data structuring rules
-                ├── report_template.md           # Report format templates
-                └── example_output.md            # Sample report output
+        └── references/
+            ├── data_cleaning.md                 # Data structuring rules
+            ├── report_template.md               # Report format templates
+            └── example_output.md                # Sample report output
 ```
 
 ### Architecture
@@ -114,10 +112,10 @@ MIT License
 git clone https://github.com/750928465/competitor-research-skill-kit.git
 ```
 
-将整个项目复制到你智能体的技能目录下：
-- **OpenClaw**：复制到 `~/.openclaw/workspace/skills/`
-- **Claude Code**：复制到 `.claude/skills/`
-- **其他智能体**：指向项目根目录即可
+将技能目录复制到你智能体的技能目录下：
+- **OpenClaw**：复制 `skills/*` 到 `~/.openclaw/workspace/skills/`
+- **Claude Code**：复制 `skills/*` 到 `.claude/skills/`
+- **其他智能体**：指向项目根目录或导入 `skills/` 目录即可
 
 ### 使用方式
 
@@ -150,13 +148,11 @@ competitor-research-skill-kit/
     │   └── SKILL.md
     ├── search-engine/                           # 搜索策略子技能
     │   ├── SKILL.md
-    │   └── resources/
-    │       ├── references/ (intent_parser, search_strategy)
-    │       └── assets/     (sources.yaml)
+    │   ├── references/ (intent_parser, search_strategy)
+    │   └── assets/     (sources.yaml)
     └── report-generator/                        # 报告生成子技能
         ├── SKILL.md
-        └── resources/
-            └── references/ (data_cleaning, report_template, example_output)
+        └── references/ (data_cleaning, report_template, example_output)
 ```
 
 ### 架构说明

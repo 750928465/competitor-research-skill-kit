@@ -74,5 +74,5 @@ Phase 3 — Compare:
 - Execute queries sequentially to avoid rate limiting
 - Collect top 5-10 results per query
 - Deduplicate results by URL
-- Prioritize results from trusted sources (see config/sources.yaml)
+- Prioritize results from trusted sources (see `{baseDir}/assets/sources.yaml`)
 - Discard results from excluded domains

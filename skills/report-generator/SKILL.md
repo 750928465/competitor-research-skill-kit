@@ -30,14 +30,14 @@ report-generator
 ## 处理流程
 
 ### Step 1: 数据清洗
-读取 `resources/references/data_cleaning.md`，对搜索结果进行结构化处理：
+读取 `{baseDir}/references/data_cleaning.md`，对搜索结果进行结构化处理：
 - 提取产品信息：名称、厂商、官网、描述、功能列表
 - 提取市场洞察：趋势、技术方向、用户偏好、竞争动态
 - 标注验证状态：verified（官网确认）/ partial（部分信息）/ unverified（仅第三方提及）
 - 按产品名合并、按内容去重（>80% 相似度丢弃）
 
 ### Step 2: 模板选择
-读取 `resources/references/report_template.md`，根据意图类型选择：
+读取 `{baseDir}/references/report_template.md`，根据意图类型选择：
 - `market_analysis` → 市场分析报告模板
 - `product_deep_research` → 产品深度研究报告模板
 - `product_competition` → 竞争对比报告模板
@@ -66,12 +66,12 @@ report-generator
 
 **竞争对比报告**：执行摘要 → 产品概览表格 → 功能对比矩阵 → 定价对比 → 差异化分析 → 推荐建议 → 引用
 
-详细模板参见 `resources/references/report_template.md`，示例输出参见 `resources/references/example_output.md`。
+详细模板参见 `{baseDir}/references/report_template.md`，示例输出参见 `{baseDir}/references/example_output.md`。
 
 ## 依赖资源
-- `resources/references/data_cleaning.md` — 数据清洗规则与结构化提取标准
-- `resources/references/report_template.md` — 三种报告模板定义
-- `resources/references/example_output.md` — 完整示例报告
+- `{baseDir}/references/data_cleaning.md` — 数据清洗规则与结构化提取标准
+- `{baseDir}/references/report_template.md` — 三种报告模板定义
+- `{baseDir}/references/example_output.md` — 完整示例报告
 
 ## 注意事项
 - 不编造搜索结果中未出现的产品功能或定价

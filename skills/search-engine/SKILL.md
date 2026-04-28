@@ -29,7 +29,7 @@ search-engine
 ## 处理流程
 
 ### Step 1: 查询生成
-读取 `resources/references/search_strategy.md`，根据意图类型生成查询：
+读取 `{baseDir}/references/search_strategy.md`，根据意图类型生成查询：
 
 - **market_analysis**：市场概览 → 主要厂商 → 趋势洞察（6-8 条查询）
 - **product_deep_research**：产品基础 → 功能特性 → 技术商业 → 用户反馈（6-8 条查询）
@@ -45,7 +45,7 @@ search-engine
 使用 WebSearch 逐条执行查询，每条收集 5-10 条结果。
 
 ### Step 4: 结果过滤
-读取 `resources/assets/sources.yaml` 进行过滤：
+读取 `{baseDir}/assets/sources.yaml` 进行过滤：
 - 排除社交媒体（twitter, facebook, reddit, linkedin）
 - 排除评论聚合站（g2, capterra, trustpilot）
 - 排除搜索引擎页面（google.com/search）
@@ -78,9 +78,9 @@ search-engine
 ```
 
 ## 依赖资源
-- `resources/references/intent_parser.md` — 意图识别规则
-- `resources/references/search_strategy.md` — 搜索查询模板
-- `resources/assets/sources.yaml` — 可信来源与排除规则配置
+- `{baseDir}/references/intent_parser.md` — 意图识别规则
+- `{baseDir}/references/search_strategy.md` — 搜索查询模板
+- `{baseDir}/assets/sources.yaml` — 可信来源与排除规则配置
 
 ## 注意事项
 - 查询需中英双语并行，最大化覆盖率
