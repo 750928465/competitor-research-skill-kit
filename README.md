@@ -13,7 +13,7 @@ A platform-agnostic AI skill for automated competitive analysis. Zero code depen
 ### How It Works
 
 ```
-User Query → Intent Recognition → Search Strategy → Web Search → Data Cleaning → Report Generation
+User Query → Intent Recognition → Search Strategy → web_search → Data Cleaning → Report Generation
 ```
 
 The skill provides the **strategy** (what to search, how to analyze, output format). Your AI agent provides the **execution** (web search, LLM reasoning).
@@ -86,9 +86,11 @@ competitor-research (orchestrator)
 ### Requirements
 
 Your AI agent needs:
-- **WebSearch** capability (required) — for retrieving search results
-- **WebFetch** capability (optional) — for detailed page content
+- **OpenClaw `web_search` tool** (required) — for retrieving search results
+- **OpenClaw `web_fetch` tool** (optional) — for detailed page content
 - **File reading** capability — to load prompts and config files
+
+For non-OpenClaw agents, map `web_search` and `web_fetch` to the platform's equivalent web search and URL fetch tools.
 
 ### License
 
@@ -101,7 +103,7 @@ MIT License
 ### 工作原理
 
 ```
-用户查询 → 意图识别 → 搜索策略生成 → 网页检索 → 数据清洗 → 报告生成
+用户查询 → 意图识别 → 搜索策略生成 → web_search → 数据清洗 → 报告生成
 ```
 
 技能包提供**策略**（搜什么、怎么分析、输出什么格式），你的 AI 助手提供**执行能力**（网页搜索、LLM 推理）。

@@ -42,7 +42,7 @@ search-engine
 - 包含当前年份以获取最新信息
 
 ### Step 3: 执行检索
-使用 WebSearch 逐条执行查询，每条收集 5-10 条结果。
+使用 OpenClaw `web_search` 工具逐条执行查询，每条收集 5-10 条结果。
 
 ### Step 4: 结果过滤
 读取 `{baseDir}/assets/sources.yaml` 进行过滤：

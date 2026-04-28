@@ -42,7 +42,7 @@ competitor-research
 ### Step 2: 搜索策略与执行
 调用 `search-engine` 子技能：
 - 读取 `{baseDir}/../search-engine/references/search_strategy.md` 生成 6-8 条查询
-- 执行 WebSearch，收集结果并按 URL 去重
+- 执行 OpenClaw `web_search` 工具，收集结果并按 URL 去重
 - 排除社交媒体、评论聚合站等低质量来源
 
 ### Step 3: 数据清洗与报告生成
