@@ -20,20 +20,14 @@ The skill provides the **strategy** (what to search, how to analyze, output form
 
 ### Quick Start
 
-#### Option 1: Git Clone
-
 ```bash
 git clone https://github.com/750928465/competitor-research-skill-kit.git
 ```
 
-Then load the skill in your agent:
-- **Claude Code**: Copy to `.claude/skills/competitor-research/`
-- **OpenClaw**: Install via skill registry
-- **Other agents**: Point your agent to the `SKILL.md` file
-
-#### Option 2: Direct Download
-
-Download and extract `SKILL.md`, `prompts/`, and `config/` to your agent's skill directory.
+Copy the entire project to your agent's skill directory:
+- **OpenClaw**: Copy to `~/.openclaw/workspace/skills/`
+- **Claude Code**: Copy to `.claude/skills/`
+- **Other agents**: Point your agent to the project root
 
 ### Usage
 
@@ -57,21 +51,38 @@ Simply ask your agent:
 
 ```
 competitor-research-skill-kit/
-├── SKILL.md                        # Main entry skill (start here)
-├── skills/
-│   ├── search-engine/
-│   │   └── SKILL.md               # Search strategy sub-skill
-│   └── report-generator/
-│       └── SKILL.md               # Report generation sub-skill
-├── prompts/
-│   ├── intent_parser.md           # Intent recognition rules
-│   ├── search_strategy.md         # Search query templates
-│   ├── data_cleaning.md           # Data structuring rules
-│   └── report_template.md         # Report format templates
-├── config/
-│   └── sources.yaml               # Trusted sources & exclusions
-└── examples/
-    └── example_output.md          # Sample report output
+├── AGENTS.md                                    # Agent behavior & workflow rules
+├── SOUL.md                                      # Personality & work style
+├── IDENTITY.md                                  # Identity & role definition
+├── README.md
+└── skills/
+    ├── competitor-research/                     # Main entry skill (orchestrator)
+    │   └── SKILL.md
+    ├── search-engine/                           # Search strategy sub-skill
+    │   ├── SKILL.md
+    │   └── resources/
+    │       ├── references/
+    │       │   ├── intent_parser.md             # Intent recognition rules
+    │       │   └── search_strategy.md           # Search query templates
+    │       └── assets/
+    │           └── sources.yaml                 # Trusted sources config
+    └── report-generator/                        # Report generation sub-skill
+        ├── SKILL.md
+        └── resources/
+            └── references/
+                ├── data_cleaning.md             # Data structuring rules
+                ├── report_template.md           # Report format templates
+                └── example_output.md            # Sample report output
+```
+
+### Architecture
+
+```
+competitor-research (orchestrator)
+    │
+    ├─ Intent recognition (built-in)
+    ├─ search-engine → generates queries, executes search, filters results
+    └─ report-generator → cleans data, selects template, outputs report
 ```
 
 ### Requirements
@@ -80,21 +91,6 @@ Your AI agent needs:
 - **WebSearch** capability (required) — for retrieving search results
 - **WebFetch** capability (optional) — for detailed page content
 - **File reading** capability — to load prompts and config files
-
-No API keys needed in the skill itself — the agent uses its own search tools.
-
-### Platform Compatibility
-
-Works with any AI agent that supports:
-- Skill/slash command loading
-- Web search tools
-- Markdown output
-
-Compatible with:
-- Claude Code
-- OpenClaw
-- Hermes
-- Any agent supporting SKILL.md format
 
 ### License
 
@@ -114,20 +110,14 @@ MIT License
 
 ### 快速开始
 
-#### 方式一：Git Clone
-
 ```bash
 git clone https://github.com/750928465/competitor-research-skill-kit.git
 ```
 
-然后在你的智能体中加载：
-- **Claude Code**：复制到 `.claude/skills/competitor-research/`
-- **OpenClaw**：通过技能市场安装
-- **其他智能体**：将 `SKILL.md` 指定为技能入口文件
-
-#### 方式二：直接下载
-
-下载仓库，将 `SKILL.md`、`prompts/` 和 `config/` 解压到你的智能体技能目录即可。
+将整个项目复制到你智能体的技能目录下：
+- **OpenClaw**：复制到 `~/.openclaw/workspace/skills/`
+- **Claude Code**：复制到 `.claude/skills/`
+- **其他智能体**：指向项目根目录即可
 
 ### 使用方式
 
@@ -151,44 +141,33 @@ git clone https://github.com/750928465/competitor-research-skill-kit.git
 
 ```
 competitor-research-skill-kit/
-├── SKILL.md                        # 主入口技能（从这里开始）
-├── skills/
-│   ├── search-engine/
-│   │   └── SKILL.md               # 搜索策略子技能
-│   └── report-generator/
-│       └── SKILL.md               # 报告生成子技能
-├── prompts/
-│   ├── intent_parser.md           # 意图识别规则
-│   ├── search_strategy.md         # 搜索查询模板
-│   ├── data_cleaning.md           # 数据结构化规则
-│   └── report_template.md         # 报告格式模板
-├── config/
-│   └── sources.yaml               # 可信来源白名单与排除规则
-└── examples/
-    └── example_output.md          # 示例报告输出
+├── AGENTS.md                                    # Agent 行为与工作流规范
+├── SOUL.md                                      # 人格与工作风格
+├── IDENTITY.md                                  # 身份与角色定义
+├── README.md
+└── skills/
+    ├── competitor-research/                     # 主技能（编排调度）
+    │   └── SKILL.md
+    ├── search-engine/                           # 搜索策略子技能
+    │   ├── SKILL.md
+    │   └── resources/
+    │       ├── references/ (intent_parser, search_strategy)
+    │       └── assets/     (sources.yaml)
+    └── report-generator/                        # 报告生成子技能
+        ├── SKILL.md
+        └── resources/
+            └── references/ (data_cleaning, report_template, example_output)
 ```
 
-### 环境要求
+### 架构说明
 
-你的 AI 智能体需要具备：
-- **WebSearch** 能力（必需）——用于检索网页搜索结果
-- **WebFetch** 能力（可选）——用于获取网页详情内容
-- **文件读取** 能力——用于加载提示词和配置文件
-
-技能包本身不需要 API Key，智能体使用自带的搜索工具即可。
-
-### 平台兼容性
-
-适用于任何支持以下能力的 AI 智能体：
-- 技能/斜杠命令加载
-- 网页搜索工具
-- Markdown 输出
-
-已验证兼容：
-- Claude Code
-- OpenClaw
-- Hermes
-- 任何支持 SKILL.md 格式的智能体
+```
+competitor-research（编排调度）
+    │
+    ├─ 意图识别（内置）
+    ├─ search-engine → 生成查询、执行搜索、过滤结果
+    └─ report-generator → 清洗数据、选择模板、输出报告
+```
 
 ### 许可证
 
