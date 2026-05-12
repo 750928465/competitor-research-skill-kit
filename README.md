@@ -17,7 +17,7 @@ This skill kit solves long manual research cycles and incomplete information gat
 ### How It Works
 
 ```text
-User Query → Intent Recognition → competitor-web-crawler (web_search + web_fetch) → report-generator → difference-panel → Competitor Analysis Report
+User Query → product-exploration workflow (intent judgment) → competitor-web-crawler (web_search + web_fetch) → report-generator → difference-panel → Competitor Analysis Report
 ```
 
 The skill provides the **strategy**: what to search, which pages to fetch, how to clean evidence, how to structure the report, and how to render the difference panel. Your AI agent provides the **execution**: OpenClaw tools, file reading, and reasoning.
@@ -60,7 +60,7 @@ Simply ask your agent:
 | `report-generator` | Cleans evidence and generates structured Markdown competitor analysis reports |
 | `difference-panel` | Outputs a competitor difference panel with status labels and citations |
 
-`product-exploration` is the orchestrator skill that coordinates the three core skills.
+`product-exploration` is the workflow orchestrator skill. It first performs intent judgment, then coordinates the three core skills.
 
 ### Project Structure
 
@@ -71,8 +71,10 @@ competitor-research-skill-kit/
 ├── IDENTITY.md
 ├── README.md
 └── skills/
-    ├── product-exploration/                     # Main orchestrator skill
-    │   └── SKILL.md
+    ├── product-exploration/                     # Workflow orchestrator skill
+    │   ├── SKILL.md
+    │   └── references/
+    │       └── workflow.md
     ├── competitor-web-crawler/                  # Competitor page discovery and fetching
     │   ├── SKILL.md
     │   ├── references/
@@ -132,7 +134,7 @@ MIT License
 ### 工作原理
 
 ```text
-用户查询 → 意图识别 → competitor-web-crawler（web_search + web_fetch）→ report-generator → difference-panel → 竞品分析报告
+用户查询 → product-exploration workflow（意图判断）→ competitor-web-crawler（web_search + web_fetch）→ report-generator → difference-panel → 竞品分析报告
 ```
 
 技能包提供**策略**：搜什么、抓哪些页面、如何清洗证据、如何生成报告、如何输出差异面板。你的 AI 助手提供**执行能力**：OpenClaw 工具调用、文件读取和推理。
@@ -175,7 +177,7 @@ git clone https://github.com/750928465/competitor-research-skill-kit.git
 | `report-generator` | 清洗网页证据并生成结构化 Markdown 竞品分析报告 |
 | `difference-panel` | 输出带状态标签和来源引用的竞品差异面板 |
 
-`product-exploration` 是主编排技能，负责协调上述三个核心技能。
+`product-exploration` 是 workflow 主编排技能，负责先做意图判断，再协调上述三个核心技能。
 
 ### 项目结构
 
@@ -186,8 +188,9 @@ competitor-research-skill-kit/
 ├── IDENTITY.md
 ├── README.md
 └── skills/
-    ├── product-exploration/                     # 主技能（编排调度）
-    │   └── SKILL.md
+    ├── product-exploration/                     # workflow 主技能（意图判断 + 编排调度）
+    │   ├── SKILL.md
+    │   └── references/ (workflow)
     ├── competitor-web-crawler/                  # 竞品网页自动发现与抓取
     │   ├── SKILL.md
     │   ├── references/ (intent_parser, search_strategy)
