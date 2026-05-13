@@ -110,7 +110,25 @@ Skip or deprioritize fetching:
 
 - Execute queries sequentially to avoid rate limiting.
 - Collect top 5-10 results per query.
+- For market landscape or open-ended competitor research, identify 5 core competitors whenever available.
+- For each core competitor, collect at least 3 credible sources whenever available.
 - Fetch the top official and evidence-rich pages for each competitor.
 - Deduplicate results by canonical URL.
 - Prioritize sources from `{baseDir}/assets/sources.yaml`.
 - Discard results from excluded domains unless the monitoring scenario requires preserving them as unverified risk signals.
+
+## Supplemental Search Limits
+
+Use supplemental search only when evidence coverage is insufficient:
+
+- Core competitors found < 5.
+- Any core competitor has fewer than 3 credible sources.
+- Official page, feature page, pricing page, changelog, or other required primary evidence is missing.
+- More than 40% of target report dimensions remain unknown.
+
+Stop supplemental search when:
+
+- Coverage reaches 5 core competitors with at least 3 credible sources each.
+- One supplemental round adds no new high-value source.
+- Two supplemental rounds have already been completed.
+- The available public web evidence appears exhausted.

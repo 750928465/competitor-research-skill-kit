@@ -56,7 +56,32 @@ Call `competitor-web-crawler`:
 
 - Use `web_search` for source discovery.
 - Use `web_fetch` for official pages and evidence-rich URLs.
+- For market landscape and open-ended competitor research, target **5 core competitors**.
+- For each core competitor, collect at least **3 credible sources** whenever available.
 - Deduplicate and label every result with source type and credibility.
+
+## Evidence Sufficiency and Stop Conditions
+
+The workflow should use bounded iterative search. It must not search indefinitely.
+
+Continue searching when:
+
+- Fewer than 5 core competitors are identified for market landscape or open-ended competitor research.
+- Any core competitor has fewer than 3 credible sources.
+- Official website, feature page, pricing page, or equivalent primary evidence is missing for key competitors.
+- More than 40% of required report dimensions are `未知`.
+- Existing evidence is mostly third-party summaries without official or credible media confirmation.
+- Sources conflict and no higher-credibility source has resolved the conflict.
+
+Stop searching when any of the following is true:
+
+- 5 core competitors have been identified, and each has at least 3 credible sources.
+- Key dimensions are sufficiently covered for the selected report template.
+- A supplemental search round adds no new high-value sources.
+- Two supplemental search rounds have already been completed.
+- Query, time, or cost budget is reached.
+
+If the ideal coverage cannot be reached, stop after the bounded search and list remaining gaps in `研究范围与信息缺口`.
 
 ## Step 4: Evidence Cleaning and Report Draft
 
